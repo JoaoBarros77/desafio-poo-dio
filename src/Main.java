@@ -1,62 +1,81 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
         Curso curso1 = new Curso();
-        curso1.setTitulo("curso java");
-        curso1.setDescricao("descrição curso java");
-        curso1.setCargaHoraria(8);
+        curso1.setTitulo("Dominando a Linguagem de Programação Java");
+        curso1.setDescricao("Introdução a Linguagem Java");
+        curso1.setCargaHoraria(14);
 
         Curso curso2 = new Curso();
-        curso2.setTitulo("curso js");
-        curso2.setDescricao("descrição curso js");
-        curso2.setCargaHoraria(4);
+        curso2.setTitulo("Programação Orientada a Objetos com Java");
+        curso2.setDescricao("Introdução ao Paradigma Orientado a Objetos em Java");
+        curso2.setCargaHoraria(20);
 
-        Mentoria mentoria = new Mentoria();
-        mentoria.setTitulo("mentoria de java");
-        mentoria.setDescricao("descrição mentoria java");
-        mentoria.setData(LocalDate.now());
+        Curso curso3 = new Curso();
+        curso3.setTitulo("Base em Lógica de Programação para Jogos");
+        curso3.setDescricao("Introdução a Lógica de Programação");
+        curso3.setCargaHoraria(7);
 
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        Curso curso4 = new Curso();
+        curso4.setTitulo("Operadores e Estruturas de Controle para Jogos");
+        curso4.setDescricao("Introdução de Operadores Lógicas e Estruturas de Controle");
+        curso4.setCargaHoraria(11);
 
-        Bootcamp bootcamp = new Bootcamp();
-        bootcamp.setNome("Bootcamp Java Developer");
-        bootcamp.setDescricao("Descrição Bootcamp Java Developer");
-        bootcamp.getConteudos().add(curso1);
-        bootcamp.getConteudos().add(curso2);
-        bootcamp.getConteudos().add(mentoria);
+        Mentoria mentoria1 = new Mentoria();
+        mentoria1.setTitulo("Gerenciamento de Tempo");
+        mentoria1.setDescricao("Descubra estratégias eficazes de gerenciamento de tempo.");
+        mentoria1.setData(LocalDate.now());
 
-        Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
-        devCamila.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        devCamila.progredir();
-        devCamila.progredir();
+        Mentoria mentoria2 = new Mentoria();
+        mentoria2.setTitulo("Explorando IAs Generativas Com Foco em Produtividade");
+        mentoria2.setDescricao("Compreenda como as IAs generativas podem ser utilizadas para aumentar a produtividade.");
+        mentoria2.setData(LocalDate.now());
+
+
+        Bootcamp bootcampJava = new Bootcamp();
+        bootcampJava.setNome("Backend com Java");
+        bootcampJava.setDescricao("Aprenda Java partindo da sintaxe básica até a implementação de uma API.");
+        bootcampJava.getConteudos().add(curso1);
+        bootcampJava.getConteudos().add(curso2);
+        bootcampJava.getConteudos().add(mentoria1);
+        bootcampJava.getConteudos().add(mentoria2);
+
+
+        Bootcamp bootcampGodot = new Bootcamp();
+        bootcampGodot.setNome("Criando Jogos com Godot");
+        bootcampGodot.setDescricao("Desenvolva suas habilidades com JavaScript e GDscript e construa seu primeiro jogo em 2D na engine Godot.");
+        bootcampGodot.getConteudos().add(curso3);
+        bootcampGodot.getConteudos().add(curso4);
+        bootcampJava.getConteudos().add(mentoria1);
+        bootcampJava.getConteudos().add(mentoria2);
+
+        Dev devSara = new Dev();
+        devSara.setNome("Sara");
+        devSara.inscreverBootcamp(bootcampJava);
+        System.out.println("Conteúdos Inscritos:" + devSara.getConteudosInscritos());
+        devSara.progredir();
+        devSara.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
-        System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
-        System.out.println("XP:" + devCamila.calcularTotalXp());
+        System.out.println("Conteúdos Inscritos:" + devSara.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos:" + devSara.getConteudosConcluidos());
+        System.out.println("XP:" + devSara.calcularTotalXp());
 
         System.out.println("-------");
 
-        Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
-        devJoao.inscreverBootcamp(bootcamp);
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        devJoao.progredir();
-        devJoao.progredir();
-        devJoao.progredir();
+        Dev devSalomão = new Dev();
+        devSalomão.setNome("Salomão");
+        devSalomão.inscreverBootcamp(bootcampGodot);
+        System.out.println("Conteúdos Inscritos:" + devSalomão.getConteudosInscritos());
+        devSalomão.progredir();
+        devSalomão.progredir();
         System.out.println("-");
-        System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
-        System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
-        System.out.println("XP:" + devJoao.calcularTotalXp());
+        System.out.println("Conteúdos Inscritos:" + devSalomão.getConteudosInscritos());
+        System.out.println("Conteúdos Concluidos:" + devSalomão.getConteudosConcluidos());
+        System.out.println("XP:" + devSalomão.calcularTotalXp());
+
 
     }
 
